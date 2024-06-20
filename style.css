@@ -1,0 +1,65 @@
+body{
+    background-image: url(font.jpg) ;
+   
+}
+.form{
+    position: relative;
+    top: 100px;
+    border: 2px solid;
+    height: 290px;
+    width: 600px;
+    border-radius: 5px rgba(94, 255, 0, 0.623);
+}
+input{
+    margin-top: 10px;
+    height: 40px;
+    width: 400px;
+    border-radius: 3px;
+    border: 2px solid #111111;
+    font-size: 20px;
+    background-color: rgba(238, 177, 85, 0.164);
+    color: tan;
+    border-right: 3px rgba(255, 228, 196, 0);
+    border-top:none ;
+}
+input::placeholder{
+position: relative;
+left: 10px;
+font-size: 20px;
+}
+h1{
+    position: relative;
+    top: 60px;
+    color: palegreen;
+    box-shadow: rgba(56, 56, 34, 0.342);
+}
+button{
+    margin-top: 10px;
+    height: 40px;
+    width: 400px;
+    border-radius: 3px;
+    border: 2px solid #111111;
+    font-size: 20px;
+    background-color: rgba(240, 128, 128, 0.267); 
+    color: tan;
+    border: none;
+}
+button:hover{
+    background-color: rgba(224, 255, 255, 0.5);
+    color: navy;
+}
+p{
+    position: relative;
+    top: 125px;
+    left: 28%;
+    color: rgba(253, 245, 230, 0.198);
+}
+#erreur{
+    height: 40px;
+    width: 220px;
+    border: none;
+    position: absolute;
+    top: -20%;
+    left: 30%;
+    color: red;
+}

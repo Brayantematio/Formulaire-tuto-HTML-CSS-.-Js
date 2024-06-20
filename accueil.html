@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>acceil</title>
+  <link rel="import" href="form.html">
+    <style>
+        body{
+            background-color: rgba(0, 0, 0, 0.541);
+        }
+        h1{
+            text-align: center;
+        }
+        button{
+     position: relative;
+     left: 100px;      
+    margin-top: 10px;
+    height: 40px;
+    width: 400px;
+    border-radius: 3px;
+    border: 2px solid #111111;
+    font-size: 20px;
+    background-color: rgba(27, 11, 11, 0.267); 
+    color: tan;
+    border: none;
+}
+button:hover{
+    background-color: rgba(224, 255, 255, 0.5);
+    color: navy;
+        }
+        #contain{
+            height: 50px;
+            width: 800px;
+            border: 2px solid;
+            position: relative;
+            left: 100px;
+            top: 25px;
+            font-size: 25px;
+            text-align: center;
+            color: cyan;   
+            border: none;         
+        }
+        #section{
+            height: 50px;
+            width: 800px;
+            border: 2px solid;
+            position: relative;
+            left: 100px;
+            top: 50px;
+            font-size: 25px;
+            text-align: center;
+            color: cyan;   
+                  
+        }
+    </style>
+</head>
+<body>
+    <h1>inscription terminer avec succès</h1>  
+    <button onclick="retour()">RETOUR</button>
+        <button onclick="suivant()">SUIVANT</button>
+        <div id="contain"></div>
+        <div id="section"></div>
+    <script>
+function retour(){
+    window.location.href = 'form.html';
+}
+window.addEventListener('DOMContentLoaded', (event) => {
+  const words = ['bienvenue sur notre site',  'votre inscription est succès', 'nous vous souhaitons une bonne navigation'];
+  let currentWordIndex = 0;
+
+  const textContainer = document.getElementById('contain');
+
+  function typeWord(word, callback) {
+    let i = 0;
+    const typingInterval = setInterval(() => {
+      textContainer.textContent += word[i];
+      i++;
+
+      if (i === word.length) {
+        clearInterval(typingInterval);
+        setTimeout(() => {
+          callback();
+        }, 10);
+      }
+    }, 140);
+  }
+
+  function eraseText(callback) {
+    const text = textContainer.textContent;
+    let i = text.length - 1;
+    const erasingInterval = setInterval(() => {
+      textContainer.textContent = text.slice(0, i);
+
+      if (i === 0) {
+        clearInterval(erasingInterval);
+        callback();
+      }
+
+      i--;
+    }, 100);
+  }
+
+  function writeNextWord() {
+    eraseText(() => {
+      currentWordIndex = (currentWordIndex + 1) % words.length;
+      typeWord(words[currentWordIndex], writeNextWord);
+    });
+  }
+
+  typeWord(words[currentWordIndex], writeNextWord);
+});
+
+    </script>
+</body>
+</html>
